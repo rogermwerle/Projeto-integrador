@@ -15,4 +15,19 @@ public class WebController {
     public String index2() {
         return "index";
     }
+
+    @GetMapping("/addusuario")
+    public String addusuario() {
+        return "adicionar-usuario";
+    }
+
+    @GetMapping("usuarios")
+    public String usuarios() {
+        return "gerenciar-usuarios";
+    }
+
+    @GetMapping("/saldo")
+    public String usuario() {
+        return "saldo";
+    }
 }
