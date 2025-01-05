@@ -30,4 +30,9 @@ public class WebController {
     public String usuario() {
         return "saldo";
     }
+
+    @GetMapping("/transacao")
+    public String transacao() {
+        return "transacao";
+    }
 }
