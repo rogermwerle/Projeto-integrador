@@ -38,10 +38,26 @@
             <h2 class="text-center">Funcionalidades</h2>
             <div class="row justify-content-center">
                 <ul class="list-group col-md-6">
-                    <li class="list-group-item">Adicionar usuários</li>
-                    <li class="list-group-item">Adicionar saldo para um usuário</li>
-                    <li class="list-group-item">Gerenciar usuários</li>
-                    <li class="list-group-item">Página de transações</li>
+                    <li class="list-group-item">
+                        <a th:href="@{/addusuario}" class="text-decoration-none text-primary">
+                            Adicionar usuários
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a th:href="@{/saldo}" class="text-decoration-none text-primary">
+                            Adicionar saldo para um usuário
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a th:href="@{/usuarios}" class="text-decoration-none text-primary">
+                            Gerenciar usuários
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a th:href="@{/transacao}" class="text-decoration-none text-primary">
+                            Página de transações
+                        </a>
+                    </li>
                 </ul>
             </div>
         </section>

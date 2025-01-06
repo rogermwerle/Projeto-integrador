@@ -27,7 +27,7 @@ public class WebController {
     }
 
     @GetMapping("/saldo")
-    public String usuario() {
+    public String usuarioSaldo() {
         return "saldo";
     }
 
