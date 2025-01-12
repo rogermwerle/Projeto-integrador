@@ -25,13 +25,8 @@
             <div class="col-lg-6 mx-auto">
                 <form id="formAtualizarUsuario" class="bg-white p-4 rounded shadow">
                     <div class="mb-3">
-                        <label for="id" class="form-label"><strong>ID</strong></label>
-                        <input type="number" name="id" id="idUsuario" class="form-control" required placeholder="Informe o ID do usuário">
-                    </div>
-
-                    <div class="mb-3">
                         <label for="nome" class="form-label"><strong>Novo Nome</strong></label>
-                        <input type="text" name="nome" id="nomeAtualizar" class="form-control" required minlength="6" placeholder="Novo nome de usuário">
+                        <input type="text" name="nome" id="nome" class="form-control" required minlength="6" placeholder="Novo nome de usuário">
                     </div>
 
                     <div class="text-end">
@@ -44,7 +39,7 @@
 
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped table-bordered shadow">
+                <table class="table table-striped table-bordered shadow" id="tableUsuarios">
                     <thead class="table-primary">
                         <tr>
                             <th>ID</th>
@@ -53,34 +48,16 @@
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Teste</td>
-                            <td>2048,23</td>
-                            <td class="text-center">
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Remover</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Teste 2</td>
-                            <td>3051,94</td>
-                            <td class="text-center">
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Remover</button>
-                            </td>
-                        </tr>
+                    <tbody>                 
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+pP1GhQEcQJDp6orPSgRWq2xMszT1Mxj4yJmZDbbsUn+Lc2T6I3UAI3yFZoK3h"
-        crossorigin="anonymous"></script>
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    <script src="/scriptUsuario.js"></script>
 </body>
 
 </html>
