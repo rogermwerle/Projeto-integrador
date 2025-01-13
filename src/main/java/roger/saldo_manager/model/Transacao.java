@@ -34,5 +34,5 @@ public class Transacao {
     @ManyToOne
     @JoinColumn(name = "destinatario_id", nullable = false)
     private Usuario destinatario;
-    private String descrição;
+    private String descricao;
 }
