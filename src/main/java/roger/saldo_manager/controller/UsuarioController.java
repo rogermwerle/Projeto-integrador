@@ -41,25 +41,35 @@ public class UsuarioController {
     }
 
     @PostMapping("/depositar/{id}")
-    public ResponseEntity<Usuario> depositar(
-            @PathVariable Long id,
-            @RequestParam double valor) {
-        Usuario usuarioAtualizado = usuarioService.depositar(id, usuarioService.pegarID(id), valor);
-        return ResponseEntity.ok(usuarioAtualizado);
+    public ResponseEntity<Usuario> depositar(@PathVariable Long id, @RequestParam double valor) {
+        if (valor <= 0) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
+        try {
+            Usuario usuarioAtualizado = usuarioService.depositar(id, valor);
+            return ResponseEntity.ok(usuarioAtualizado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
     @PostMapping("/sacar/{id}")
-    public ResponseEntity<Usuario> sacar(
-            @PathVariable Long id,
-            @RequestParam double valor) {
-        Usuario usuarioAtualizado = usuarioService.sacar(id, usuarioService.pegarID(id), valor);
-        return ResponseEntity.ok(usuarioAtualizado);
+    public ResponseEntity<Usuario> sacar(@PathVariable Long id, @RequestParam double valor) {
+        if (valor <= 0) {
+            return ResponseEntity.badRequest().body(null);
+        }
+
+        try {
+            Usuario usuarioAtualizado = usuarioService.sacar(id, valor);
+            return ResponseEntity.ok(usuarioAtualizado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
     }
 
     @PutMapping("/alterar-nome/{id}")
-    public ResponseEntity<Usuario> alterarNome(
-            @PathVariable Long id,
-            @RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> alterarNome(@PathVariable Long id, @RequestBody Usuario usuario) {
         Usuario usuarioAtualizado = usuarioService.alterarNome(id, usuario, 0);
         return ResponseEntity.ok(usuarioAtualizado);
     }

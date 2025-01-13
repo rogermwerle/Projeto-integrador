@@ -30,24 +30,32 @@ public class UsuarioService {
         usuarioRepository.deleteById(usuario.getId());
     }
 
-    public Usuario depositar(Long id, Usuario usuario, double valor) {
-        Usuario usuarioAtualizar = usuarioRepository.findById(id)
+    public Usuario depositar(Long id, double valor) {
+        if (valor <= 0) {
+            throw new IllegalArgumentException("O valor do depósito deve ser maior que zero.");
+        }
+        Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário com ID " + id + " não encontrado."));
 
         double novoSaldo = usuario.getSaldo() + valor;
-
-        usuarioAtualizar.setSaldo(novoSaldo);
-        return usuarioRepository.save(usuarioAtualizar);
+        usuario.setSaldo(novoSaldo);
+        return usuarioRepository.save(usuario);
     }
 
-    public Usuario sacar(Long id, Usuario usuario, double valor) {
-        Usuario usuarioAtualizar = usuarioRepository.findById(id)
+    public Usuario sacar(Long id, double valor) {
+        if (valor <= 0) {
+            throw new IllegalArgumentException("O valor do saque deve ser maior que zero.");
+        }
+        
+        Usuario usuario = usuarioRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário com ID " + id + " não encontrado."));
-
+        
+        if (usuario.getSaldo() < valor) {
+            throw new IllegalArgumentException("Saldo insuficiente para realizar o saque.");
+        }
         double novoSaldo = usuario.getSaldo() - valor;
-
-        usuarioAtualizar.setSaldo(novoSaldo);
-        return usuarioRepository.save(usuarioAtualizar);
+        usuario.setSaldo(novoSaldo);
+        return usuarioRepository.save(usuario);
     }
 
     public Usuario alterarNome(Long id, Usuario usuario, double valor) {

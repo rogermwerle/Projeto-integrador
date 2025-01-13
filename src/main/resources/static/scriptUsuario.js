@@ -20,7 +20,7 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 alert('Erro ao cadastrar usuário: ' + error);
-                console.log(xhr.responseText);  // Detalhe do erro
+                console.log(xhr.responseText);
             }
         });
     });
@@ -84,7 +84,7 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 alert('Erro ao atualizar usuário: ' + error);
-                console.log(xhr.responseText);  // Detalhe do erro
+                console.log(xhr.responseText);
             }
         });
     });
@@ -103,11 +103,11 @@ $(document).ready(function () {
                 },
                 error: function (xhr, status, error) {
                     alert('Erro ao remover usuário: ' + error);
-                    console.log(xhr.responseText);  // Detalhe do erro
+                    console.log(xhr.responseText);
                 }
             });
         }
     }
 
-    carregarUsuarios();  // Carregar usuários ao iniciar
+    carregarUsuarios();
 });
